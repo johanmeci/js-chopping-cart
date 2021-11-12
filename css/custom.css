@@ -87,6 +87,11 @@ ul {
     border-radius: 5px;
 }
 
+.submenu #div-cart .txt-empty {
+    font-style: italic;
+    color: #c1c1c1;
+}
+
 .submenu table thead {
     position: sticky;
     top: 0;
@@ -126,6 +131,11 @@ ul {
 
 .submenu #div-cart #empty-cart {
     margin-bottom: 0;
+    display: none;
+}
+
+.submenu #div-cart #empty-cart.active {
+    display: block;
 }
 
 .empty {

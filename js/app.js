@@ -1,5 +1,7 @@
 //Variables
 const cart = document.querySelector('#div-cart');
+const tableList = document.querySelector('#cart-list');
+const txtEmpty = document.querySelector('#txt-empty');
 const containerList = document.querySelector('#cart-list tbody');
 const btnEmpty = document.querySelector('#empty-cart');
 const courseList = document.querySelector('#course-list');
@@ -83,12 +85,19 @@ function getCourse(course) {
         cartList = [...cartList, dataCourse];
     }
 
-
     addCartListHTML();
 }
 
 //Add elements in cartList HTML container
 function addCartListHTML() {
+
+    if (cartList.length === 0) {
+        tableList.classList.remove('active');
+        txtEmpty.classList.add('active');
+    } else if(cartList.length === 1) {
+        tableList.classList.add('active');
+        txtEmpty.classList.remove('active');
+    }
 
     cleanContainerList();
 
