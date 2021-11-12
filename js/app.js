@@ -94,9 +94,11 @@ function addCartListHTML() {
     if (cartList.length === 0) {
         tableList.classList.remove('active');
         txtEmpty.classList.add('active');
+        btnEmpty.classList.remove('active');
     } else if(cartList.length === 1) {
         tableList.classList.add('active');
         txtEmpty.classList.remove('active');
+        btnEmpty.classList.add('active');
     }
 
     cleanContainerList();

@@ -72,10 +72,14 @@ ul {
 }
 
 .submenu #div-cart table {
-    display: block;
+    display: none;
     height: auto;
     max-height: 325px;
     overflow-y: scroll;
+}
+
+.submenu #div-cart table.active {
+    display: block;
 }
 
 .submenu #div-cart table::-webkit-scrollbar {
@@ -90,6 +94,11 @@ ul {
 .submenu #div-cart .txt-empty {
     font-style: italic;
     color: #c1c1c1;
+    display: none;
+}
+
+.submenu #div-cart .txt-empty.active {
+    display: block;
 }
 
 .submenu table thead {
