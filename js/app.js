@@ -14,7 +14,13 @@ function loadEventListeners() {
     courseList.addEventListener('click', addItem);
 
     //Delete item
-    cart.addEventListener('click', deleteItem)
+    cart.addEventListener('click', deleteItem);
+
+    //Empty cart
+    btnEmpty.addEventListener('click', () => {
+        cartList = [];
+        addCartListHTML();
+    });
 }
 
 //Functions
@@ -107,7 +113,6 @@ function addCartListHTML() {
     });
     
 }
-
 
 function cleanContainerList() {
     
