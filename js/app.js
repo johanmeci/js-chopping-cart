@@ -9,7 +9,12 @@ let cartList = [];
 loadEventListeners();
 
 function loadEventListeners() {
+
+    //Add item
     courseList.addEventListener('click', addItem);
+
+    //Delete item
+    cart.addEventListener('click', deleteItem)
 }
 
 //Functions
@@ -22,6 +27,20 @@ function addItem(e) {
         getCourse(selectedCourse);
     }
 
+}
+
+function deleteItem(e) {
+
+    e.preventDefault();
+
+    if (e.target.classList.contains('remove-item')) {
+
+        const itemID = e.target.getAttribute('data-id');
+        cartList = cartList.filter(item => item.id !== itemID);
+
+        addCartListHTML();
+    }
+    
 }
 
 function getCourse(course) {
@@ -53,7 +72,7 @@ function getCourse(course) {
         cartList = [...addQty];
         
     } else {
-        
+
         //Add elements to cartList array
         cartList = [...cartList, dataCourse];
     }
