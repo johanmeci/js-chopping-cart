@@ -34,8 +34,30 @@ function getCourse(course) {
         qty: 1
     }
 
-    //Add elements to cartList array
-    cartList = [...cartList, dataCourse];
+    //Validate existence of the item
+    const exists = cartList.some(item => item.id === dataCourse.id);
+
+    if (exists) {
+
+        const addQty = cartList.map(item => {
+
+            if (item.id === dataCourse.id) {
+                item.qty++;
+                return item;
+            } else {
+                return item;
+            }
+
+        });
+
+        cartList = [...addQty];
+        
+    } else {
+        
+        //Add elements to cartList array
+        cartList = [...cartList, dataCourse];
+    }
+
 
     addCartListHTML();
 }
