@@ -18,51 +18,116 @@ header {
     padding: 20px 0 0 0;
     background: white;
     text-align: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
 @media (min-width: 750px) {
     header {
         text-align: left;
     }
 }
-.remove-item {
-    background-color: red;
-    border-radius: 50%;
-    padding: 5px 10px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
 
 ul {
     list-style: none;
 }
+
 #hero {
     background-image:url(../img/hero.jpg);
     height: 350px;
     background-size: cover;
 }
+
 #txt-principal {
     margin: 30px 0;
 }
+
 .submenu {
     position: relative;
 }
 
-.submenu #div-cart{
+.submenu img {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submenu #div-cart {
     display: none;
 }
-.submenu:hover #div-cart{
+
+.submenu:hover #div-cart {
     display: block;
     position: absolute;
     right:0;
-
     top:100%;
     z-index: 1;
     background-color: white;
     padding: 20px;
-    min-height: 400px;
+    height: auto;
+    max-height: 400px;
     min-width: 300px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
 }
+
+.submenu #div-cart table {
+    display: block;
+    height: auto;
+    max-height: 325px;
+    overflow-y: scroll;
+}
+
+.submenu #div-cart table::-webkit-scrollbar {
+    width: 4px;
+}
+
+.submenu #div-cart table::-webkit-scrollbar-thumb {
+    background: #cacaca;
+    border-radius: 5px;
+}
+
+.submenu table thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+.submenu table tbody td img {
+    width: 80px;
+}
+
+.submenu table tbody td {
+    font-size: 1.1rem;
+}
+
+.submenu .remove-item {
+    display: block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 2.2;
+    border-radius: 50%;
+    background-color: #e74c3c ;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: all .5s ease-in-out;
+}
+
+.submenu .remove-item:hover {
+    background-color: #cb4335;
+}
+
+.submenu #div-cart table {
+    margin-bottom: 2rem;
+}
+
+.submenu #div-cart #empty-cart {
+    margin-bottom: 0;
+}
+
 .empty {
     padding: 10px;
     background-color: crimson;
@@ -74,14 +139,17 @@ ul {
     margin-top: 80px;
     color: white;
 }
+
 .content-hero form {
     position: relative;
     margin-bottom: 0;
 }
+
 .content-hero form #input-search {
     height: 50px;
     margin-bottom: 0;
 }
+
 .content-hero form .submit-search {
     position: absolute;
     right:0;
@@ -97,7 +165,6 @@ ul {
     border:none;
 }
 
-
 .div-bar {
     padding: 20px 0;
     background: #741d51; /* Old browsers */
@@ -111,6 +178,7 @@ ul {
     margin:0;
     color: white;
 }
+
 .icon {
     background-repeat: no-repeat;
     background-position: left center;
@@ -119,17 +187,21 @@ ul {
     margin-bottom: 40px;
     text-align: center;
 }
+
 @media (min-width: 750px) {
     .icon {
         margin-bottom:0;
     }
 }
+
 .icon1 {
     background-image: url(../img/icon1.png);
 }
+
 .icon2 {
     background-image: url(../img/icon2.png);
 }
+
 .icon3 {
     background-image: url(../img/icon3.png);
 }
@@ -137,8 +209,11 @@ ul {
 #course-list .row {
     margin-bottom:20px;
 }
+
 .add-item {
     margin:10px 0;
+    padding: 0;
+    letter-spacing: 0;
 }
 
 .card {
@@ -146,11 +221,13 @@ ul {
     border: 1px solid #e1e1e1;
     background: white;
 }
+
 @media (min-width: 550px) {
     .card {
         text-align: left;
     }
 }
+
 .info-card  {
     padding: 10px 20px;
 }
@@ -159,11 +236,13 @@ ul {
 .card h4 {
     margin-bottom: 5px;
 }
+
 .info-card .price {
     text-decoration: line-through;
     font-size: 18px;
     margin-top: 10px;
 }
+
 .info-card .price span {
     font-weight: 700;
     font-size: 22px;
@@ -175,6 +254,7 @@ ul {
     border-top:1px solid #aaa;;
     padding-top: 40px;   
 }
+
 .footer .menu a {
     display: block;
     margin-bottom: 10px;
