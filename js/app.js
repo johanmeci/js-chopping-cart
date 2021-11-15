@@ -1,12 +1,16 @@
 //Variables
 const cart = document.querySelector('#div-cart');
 const tableList = document.querySelector('#cart-list');
-const txtEmpty = document.querySelector('#txt-empty');
 const containerList = document.querySelector('#cart-list tbody');
+const txtEmpty = document.querySelector('#txt-empty');
 const btnEmpty = document.querySelector('#empty-cart');
+const containerTotal = document.querySelector('#container-total');
+const txtTotalPrice = containerTotal.lastElementChild;
+
 const courseList = document.querySelector('#course-list');
 
 let cartList = [];
+let totalPrice = 0;
 
 loadEventListeners();
 
@@ -56,7 +60,7 @@ function getCourse(course) {
     const dataCourse = {
         id: course.querySelector('a').getAttribute('data-id'),
         title: course.querySelector('h4').textContent,
-        price: course.querySelector('.price span').textContent,
+        price: Number.parseInt(course.querySelector('.price span').textContent.replace('$', '')),
         img: course.querySelector('img').src,
         qty: 1
     }
@@ -70,6 +74,7 @@ function getCourse(course) {
 
             if (item.id === dataCourse.id) {
                 item.qty++;
+                item.price += dataCourse.price;
                 return item;
             } else {
                 return item;
@@ -85,21 +90,13 @@ function getCourse(course) {
         cartList = [...cartList, dataCourse];
     }
 
+    console.log(cartList);
+
     addCartListHTML();
 }
 
 //Add elements in cartList HTML container
 function addCartListHTML() {
-
-    if (cartList.length === 0) {
-        tableList.classList.remove('active');
-        txtEmpty.classList.add('active');
-        btnEmpty.classList.remove('active');
-    } else if(cartList.length === 1) {
-        tableList.classList.add('active');
-        txtEmpty.classList.remove('active');
-        btnEmpty.classList.add('active');
-    }
 
     cleanContainerList();
 
@@ -118,14 +115,28 @@ function addCartListHTML() {
                             <a class='remove-item' data-id='${id}' href='#'> X </a>
                         </td>
                         `;
-
         containerList.appendChild(row);
 
     });
+
+    totalPrice = cartList.reduce((total, item) => total + item.price, 0);
+    txtTotalPrice.textContent = `$${totalPrice}`;
     
 }
 
 function cleanContainerList() {
+
+    if (cartList.length === 0) {
+        tableList.classList.remove('active');
+        btnEmpty.classList.remove('active');
+        containerTotal.classList.remove('active');
+        txtEmpty.classList.add('active');
+    } else if(cartList.length === 1) {
+        tableList.classList.add('active');
+        btnEmpty.classList.add('active');
+        containerTotal.classList.add('active');
+        txtEmpty.classList.remove('active');
+    }    
     
     while (containerList.firstChild) {
         containerList.removeChild(containerList.firstChild)
