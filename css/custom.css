@@ -116,6 +116,29 @@ ul {
     font-size: 1.1rem;
 }
 
+.submenu #div-cart .container-total {
+    display: none;
+    align-items: center;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #E1E1E1;
+    width: max-content;
+    margin-left: auto;
+    padding: .3rem 1rem;
+}
+
+.submenu #div-cart .container-total.active {
+    display: flex;
+}
+
+.submenu #div-cart .container-total .span-total {
+    margin-left: auto;
+    margin-right: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+}
+
 .submenu .remove-item {
     display: block;
     width: 25px;
