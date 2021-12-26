@@ -109,10 +109,10 @@ function addCartListHTML() {
                             <img class='img-td' src='${img}' />
                         </td>
                         <td>${title}</td>
-                        <td>${price}</td>
+                        <td>$${price}</td>
                         <td>${qty}</td>
                         <td>
-                            <a class='remove-item' data-id='${id}' href='#'> X </a>
+                            <button class='remove-item' data-id='${id}' href='#'> X </button>
                         </td>
                         `;
         containerList.appendChild(row);
@@ -127,15 +127,19 @@ function addCartListHTML() {
 function cleanContainerList() {
 
     if (cartList.length === 0) {
+
         tableList.classList.remove('active');
         btnEmpty.classList.remove('active');
         containerTotal.classList.remove('active');
         txtEmpty.classList.add('active');
+
     } else if(cartList.length === 1) {
+
         tableList.classList.add('active');
         btnEmpty.classList.add('active');
         containerTotal.classList.add('active');
         txtEmpty.classList.remove('active');
+        
     }    
     
     while (containerList.firstChild) {
