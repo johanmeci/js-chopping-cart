@@ -22,6 +22,12 @@ function loadEventListeners() {
     //Delete item
     cart.addEventListener('click', deleteItem);
 
+    //Load localStorage
+    document.addEventListener('DOMContentLoaded', () => {
+        cartList = JSON.parse(localStorage.getItem('cart-list')) || [];
+        addCartListHTML();
+    });
+
     //Empty cart
     btnEmpty.addEventListener('click', () => {
         cartList = [];
@@ -90,7 +96,7 @@ function getCourse(course) {
         cartList = [...cartList, dataCourse];
     }
 
-    console.log(cartList);
+    // console.log(cartList);
 
     addCartListHTML();
 }
@@ -121,7 +127,14 @@ function addCartListHTML() {
 
     totalPrice = cartList.reduce((total, item) => total + item.price, 0);
     txtTotalPrice.textContent = `$${totalPrice}`;
+
+    //Add elements to localStorage
+    sincronizarStorage();
     
+}
+
+function sincronizarStorage() {
+    localStorage.setItem('cart-list', JSON.stringify(cartList));
 }
 
 function cleanContainerList() {
@@ -133,7 +146,7 @@ function cleanContainerList() {
         containerTotal.classList.remove('active');
         txtEmpty.classList.add('active');
 
-    } else if(cartList.length === 1) {
+    } else if(cartList.length >= 1) {
 
         tableList.classList.add('active');
         btnEmpty.classList.add('active');
