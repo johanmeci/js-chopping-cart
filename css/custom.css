@@ -77,7 +77,7 @@ ul li {
 }
 
 #hero {
-    background-image:url(../img/hero.jpg);
+    background-image:url(https://i.ibb.co/Q9kqxRn/hero.jpg);
     height: 350px;
     background-size: cover;
 }
@@ -299,7 +299,7 @@ ul li {
     display: block;
     text-indent: -9999px;
     width: 50px;
-    background-image: url(../img/search.png);
+    background-image: url(https://i.ibb.co/MgZCjFr/search.png);
     background-position: right center;
     background-repeat: no-repeat;
     border:none;
